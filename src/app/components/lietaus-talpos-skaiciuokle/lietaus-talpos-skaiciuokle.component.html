@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">Įveskite savo duomenis</div>
+
+        <div class="card-body">
+          <div class="mb-3">
+            <label for="" class="form-label">Rezervuaro talpa (l): </label>
+
+            <input type="number" class="form-control" [(ngModel)]="talpa" />
+          </div>
+
+          <div class="mb-3">
+            <label for="" class="form-label"
+              >Rezervuaro greitis (l/val):
+            </label>
+
+            <input type="number" class="form-control" [(ngModel)]="greitis" />
+          </div>
+
+          <div class="mb-3">
+            <label for="" class="form-label"
+              >Laikas, per kiek rezervuaras bus pildomas (val):
+            </label>
+
+            <input type="number" class="form-control" [(ngModel)]="laikas" />
+          </div>
+
+          <button
+            class="btn btn-warning"
+            (click)="skaiciuoti()"
+            [disabled]="
+              talpa == 0 ||
+              talpa == null ||
+              greitis == 0 ||
+              greitis == null ||
+              laikas == 0 ||
+              laikas == null
+            "
+          >
+            Skaičiuoti
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">Kiek % rezervuaro yra užpildyta</div>
+
+        <div class="card-body">
+          <div clas="alert" *ngIf="procentai != 0">
+            <strong>{{ procentai }} %</strong>
+          </div>
+
+          <div *ngIf="procentai == 0">
+            <p>Iveskite duomenis ir paspauskite skaiciuoti!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
