@@ -50,7 +50,20 @@
 
         <div class="card-body">
           <div clas="alert" *ngIf="procentai != 0">
-            <strong>{{ procentai }} %</strong>
+            <div class="progress">
+              <div
+                class="progress-bar {{ spalva }}"
+                role="progressbar"
+                [ngStyle]="{
+                  width: procentai + '%'
+                }"
+                aria-valuenow="procentai"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                <strong>{{ procentai }} %</strong>
+              </div>
+            </div>
           </div>
 
           <div *ngIf="procentai == 0">
